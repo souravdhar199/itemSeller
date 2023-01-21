@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable no-unreachable */
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import React from "react";
+import Explor from "./pages/Explor";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
+import Profile from "./pages/Profile";
+import Sales from "./pages/Sales";
+import Forgotpassward from "./pages/Forgotpassward";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Explor />} />
+          <Route path="/sales" element={<Sales />} />
+          <Route path="/profile" element={<Signin />} />
+          <Route path="/sign-in" element={<Signin />} />
+          <Route path="/sign-up" element={<Signup />} />
+          <Route path="/forgot-passward" element={<Forgotpassward />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
