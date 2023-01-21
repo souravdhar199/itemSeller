@@ -8,6 +8,7 @@ import Signin from "./pages/Signin";
 import Profile from "./pages/Profile";
 import Sales from "./pages/Sales";
 import Forgotpassward from "./pages/Forgotpassward";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/forgot-passward" element={<Forgotpassward />} />
         </Routes>
+        <Navbar />
       </Router>
     </>
   );
