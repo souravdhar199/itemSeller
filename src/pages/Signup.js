@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../CSS/signin&signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import {
   getAuth,
@@ -54,35 +55,37 @@ function Signup() {
   };
   return (
     <>
-      <div>
+      <div className="login-box">
         <header>
-          <p>Hi, welcome!</p>
+          <h1>Hi, welcome!</h1>
         </header>
         <form onSubmit={onSubmit}>
-          <input
-            type="name"
-            placeholder="What is your name"
-            value={name}
-            onChange={(e) =>
-              setDataform((prevState) => ({
-                ...prevState,
-                name: e.target.value,
-              }))
-            }
-          />
-          <br></br>
-          <input
-            type="email"
-            placeholder="email"
-            value={email}
-            onChange={(e) =>
-              setDataform((prevState) => ({
-                ...prevState,
-                email: e.target.value,
-              }))
-            }
-          />
-          <div>
+          <div className="user-box">
+            <label>Full name </label>
+            <input
+              type="name"
+              value={name}
+              onChange={(e) =>
+                setDataform((prevState) => ({
+                  ...prevState,
+                  name: e.target.value,
+                }))
+              }
+            />
+            <br></br>
+            <label> Email </label>
+            <input
+              type="email"
+              s
+              value={email}
+              onChange={(e) =>
+                setDataform((prevState) => ({
+                  ...prevState,
+                  email: e.target.value,
+                }))
+              }
+            />
+            <label> Passward </label>
             <input
               type={showPass ? "text" : "password"}
               value={pass}
@@ -99,10 +102,10 @@ function Signup() {
               {showPass ? "Hide Pass" : "Show Pass"}
             </button>
           </div>
+          <button>Sign Up</button>
           <Link to="/forgot-passward">Forgot passward</Link>
-          <button>Sign In</button>
+          <Link to="/sign-in">Sign In</Link>
         </form>
-        <Link to="/sign-in">Sign In</Link>
       </div>
     </>
   );

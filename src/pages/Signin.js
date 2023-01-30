@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "../CSS/signin&signup.css";
 
 function Signin() {
   const [showPass, SetShowpass] = new useState(false);
@@ -8,23 +9,24 @@ function Signin() {
   const navigate = useNavigate();
   return (
     <>
-      <div>
+      <div className="login-box">
         <header>
-          <p>Hi, welcome!</p>
+          <h1>Hi Welcome! </h1>
         </header>
         <form>
-          <input
-            type="email"
-            placeholder="email"
-            value={email}
-            onChange={(e) =>
-              setDataform((prevState) => ({
-                ...prevState,
-                email: e.target.value,
-              }))
-            }
-          />
-          <div>
+          <div className="user-box">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) =>
+                setDataform((prevState) => ({
+                  ...prevState,
+                  email: e.target.value,
+                }))
+              }
+            />
+            <label>Passward</label>
             <input
               type={showPass ? "text" : "password"}
               value={pass}
@@ -41,10 +43,10 @@ function Signin() {
               {showPass ? "Hide Pass" : "Show Pass"}
             </button>
           </div>
+          <button>Sign IN</button>
           <Link to="/forgot-passward">Forgot passward</Link>
-          <button>Sign In</button>
+          <Link to="/sign-up">Sign Up</Link>
         </form>
-        <Link to="/sign-up">Sign Up</Link>
       </div>
     </>
   );
