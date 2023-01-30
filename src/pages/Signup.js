@@ -6,6 +6,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+
 import { db } from "../firebaseconfig.js";
 
 function Signup() {
@@ -33,11 +35,17 @@ function Signup() {
 
       //then we will get the promise data
       const user = userCredential.user;
-      console.log(user);
 
       updateProfile(auth.currentUser, {
         displayName: name,
       });
+
+      // this code will store data in firestore
+      const formData = { ...dataForm };
+      delete formData.pass; // this will delete the hook value
+      formData.timeStamp = serverTimestamp();
+
+      await setDoc(doc(db, "users", user.uid), formData);
 
       navigate("/profile");
     } catch {
