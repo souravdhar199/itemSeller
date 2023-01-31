@@ -16,6 +16,7 @@ function App() {
   return (
     <>
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Explor />} />
           <Route path="/sales" element={<Sales />} />
@@ -24,7 +25,6 @@ function App() {
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/forgot-passward" element={<Forgotpassward />} />
         </Routes>
-        <Navbar />
       </Router>
       <ToastContainer />
     </>
