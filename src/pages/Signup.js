@@ -10,6 +10,7 @@ import {
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 
 import { db } from "../firebaseconfig.js";
+import { toast } from "react-toastify";
 
 function Signup() {
   const [showPass, SetShowpass] = new useState(false);
@@ -51,6 +52,7 @@ function Signup() {
       navigate("/sign-in");
     } catch {
       console.log("Error");
+      toast("Passward/email not strong/valid");
     }
   };
   return (
