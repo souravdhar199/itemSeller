@@ -1,0 +1,19 @@
+.navDiv {
+  margin-top: 2rem;
+}
+nav ul li {
+  color: white;
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: start;
+  gap: 10%;
+}
+nav ul li {
+  color: white;
+  list-style: none;
+  font-size: 1.2rem;
+}

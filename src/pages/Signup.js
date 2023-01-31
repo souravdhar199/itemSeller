@@ -48,7 +48,7 @@ function Signup() {
 
       await setDoc(doc(db, "users", user.uid), formData);
 
-      navigate("/profile");
+      navigate("/sign-in");
     } catch {
       console.log("Error");
     }

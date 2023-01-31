@@ -1,19 +1,37 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../CSS/signin&signup.css";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 function Signin() {
   const [showPass, SetShowpass] = new useState(false);
   const [dataForm, setDataform] = new useState({ email: "", pass: "" });
   const { email, pass } = dataForm;
   const navigate = useNavigate();
+
+  //this will run seperately
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    // Now lookup email and pass in firebase
+    const auth = getAuth();
+    await signInWithEmailAndPassword(auth, email, pass)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        navigate("/profile");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <div className="login-box">
         <header>
           <h1>Hi Welcome! </h1>
         </header>
-        <form>
+        <form onSubmit={onSubmit}>
           <div className="user-box">
             <label>Email</label>
             <input
