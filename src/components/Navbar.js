@@ -9,11 +9,9 @@ export default function Navbar() {
     <div className="navDiv">
       <nav>
         <ul>
-          <li onClick={() => navigate("/")}>Home</li>
+          <li onClick={() => navigate("/")}>Explore</li>
           <li onClick={() => navigate("/sales")}>Sales</li>
           <li onClick={() => navigate("/profile")}>Profile</li>
-          <li onClick={() => navigate("/sign-in")}>Sign-in</li>
-          <li onClick={() => navigate("/sign-up")}>Sign-up</li>
         </ul>
       </nav>
     </div>
