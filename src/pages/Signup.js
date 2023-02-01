@@ -105,7 +105,8 @@ function Signup() {
             </button>
           </div>
           <button>Sign Up</button>
-          <Link to="/forgot-passward">Forgot passward</Link>
+          <br></br>
+
           <Link to="/sign-in">Sign In</Link>
         </form>
       </div>
