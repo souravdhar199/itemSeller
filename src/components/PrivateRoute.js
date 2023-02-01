@@ -8,9 +8,5 @@ export default function PrivateRoute() {
   if (check) {
     return <></>;
   }
-  return loggedIN ? (
-    <Outlet />
-  ) : (
-    [toast("not signed in"), <Navigate to="/sign-in" />]
-  );
+  return loggedIN ? <Outlet /> : [<Navigate to="/sign-in" />];
 }

@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../CSS/signin&signup.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
+import useAuthStatus from "../hooks/useAuthStatus";
 
 function Signin() {
   const [showPass, SetShowpass] = new useState(false);
   const [dataForm, setDataform] = new useState({ email: "", pass: "" });
   const { email, pass } = dataForm;
   const navigate = useNavigate();
+  const { loggedIN } = useAuthStatus();
+
+  useEffect(() => {
+    if (!loggedIN) {
+      toast.error("not logged in");
+    }
+  }, []);
 
   //this will run seperately
   const onSubmit = async (e) => {
