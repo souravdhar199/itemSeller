@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Explor />} />
           <Route path="/sales" element={<Sales />} />
-          <Route path="/catagories/:catagoryname" element={<Catagories />} />
+          <Route path="/catagories/:catagoryName" element={<Catagories />} />
 
           {/* This is a Nested Route */}
           <Route path="/profile" element={<PrivateRoute />}>
