@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/PrivateRoute";
+import Catagories from "./pages/Catagories";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Explor />} />
           <Route path="/sales" element={<Sales />} />
+          <Route path="/catagories/:catagoryname" element={<Catagories />} />
 
           {/* This is a Nested Route */}
           <Route path="/profile" element={<PrivateRoute />}>
