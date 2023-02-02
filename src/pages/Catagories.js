@@ -30,7 +30,6 @@ export default function Catagories() {
         );
 
         // Execute the query:
-
         const runq = await getDocs(q);
 
         runq.forEach((doc) => {
