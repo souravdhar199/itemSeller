@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import Listing from "../components/Listing.js";
 import {
   collection,
   getDocs,
@@ -15,7 +16,7 @@ import { db } from "../firebaseconfig.js";
 import { async } from "@firebase/util";
 
 export default function Catagories() {
-  const [listing, setListing] = new useState({});
+  const [listing, setListing] = new useState([]);
   const params = useParams();
 
   useEffect(() => {
@@ -32,12 +33,15 @@ export default function Catagories() {
 
         // Execute the query:
         const runq = await getDocs(q);
-
+        const temp = [];
         runq.forEach((doc) => {
           console.log(doc.data());
-          setListing({ ...doc.data() });
+
+          temp.push({ id: doc.id, data: doc.data() });
+
           toast.success("All data loaded");
         });
+        setListing(temp);
       } catch (error) {
         console.log(error);
       }
@@ -46,8 +50,10 @@ export default function Catagories() {
   }, []);
   return (
     <div>
-      <h1>{params.catagoryName}</h1>
-      <h1>{listing.name}</h1>
+      {listing.map((item) => (
+        //Calling the Listing component
+        <Listing data={item.data} id={item.id} />
+      ))}
     </div>
   );
 }
