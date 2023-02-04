@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebaseconfig.js";
 import { doc, updateDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
+import "../CSS/profile.css";
 
 export default function Profile() {
   const [updateEmail, setUpdateEmail] = new useState(false); // this hook will work as to update email
@@ -42,29 +44,33 @@ export default function Profile() {
 
   return (
     <div>
-      <h1>Wlcome, {loggedUser.name}</h1>
-      <h1>Email - {loggedUser.email}</h1>
-      {updateEmail ? (
-        <></>
-      ) : (
-        <button onClick={() => setUpdateEmail(!updateEmail)}>
-          Update Name
-        </button>
-      )}
-      {updateEmail ? (
-        <form onSubmit={changeEmail}>
-          <label>Type your new name</label>
-          <br></br>
-          <input onChange={(e) => setNewEmail(e.target.value)} type="txt" />
-          <br></br>
-          <button>Done</button>
-        </form>
-      ) : (
-        <></>
-      )}
+      <div className="userInfo">
+        <h1>Welcome, {loggedUser.name}</h1>
+        <h1>{loggedUser.email}</h1>
+        {updateEmail ? (
+          <></>
+        ) : (
+          <button onClick={() => setUpdateEmail(!updateEmail)}>
+            Update Name
+          </button>
+        )}
+        {updateEmail ? (
+          <form onSubmit={changeEmail}>
+            <label>Type your new name</label>
+            <br></br>
+            <input onChange={(e) => setNewEmail(e.target.value)} type="txt" />
+            <br></br>
+            <button>Done</button>
+          </form>
+        ) : (
+          <></>
+        )}
 
-      <br></br>
-      <button onClick={onLogout}>Logout</button>
+        <br></br>
+        <button onClick={onLogout}>Logout</button>
+      </div>
+
+      <Link to="/profile/newListing"> Create New Listing</Link>
     </div>
   );
 }
