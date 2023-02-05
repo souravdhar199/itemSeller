@@ -3,8 +3,9 @@ import { getAuth, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebaseconfig.js";
-import { doc, updateDoc } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { doc, addDoc, collection, updateDoc } from "firebase/firestore";
+import { setDoc } from "firebase/firestore";
+
 import "../CSS/profile.css";
 
 export default function Profile() {
@@ -15,6 +16,20 @@ export default function Profile() {
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
   });
+
+  // this fucntion will add new item in database
+  const addNewItem = () => {
+    try {
+      const newData = addDoc(collection(db, "products"), {
+        name: "sadSourav",
+        City: "Atlanta",
+        Catagory: "sports",
+        timeStamp: "February 2, 2023 at 4:36:20 PM UTC-5",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const navigate = useNavigate();
   const onLogout = () => {
     auth.signOut();
@@ -43,7 +58,7 @@ export default function Profile() {
   };
 
   return (
-    <div>
+    <div className="parentProfile">
       <div className="userInfo">
         <h1>Welcome, {loggedUser.name}</h1>
         <h1>{loggedUser.email}</h1>
@@ -69,8 +84,9 @@ export default function Profile() {
         <br></br>
         <button onClick={onLogout}>Logout</button>
       </div>
-
-      <Link to="/profile/newListing"> Create New Listing</Link>
+      <div className="addList">
+        <button onClick={addNewItem}>Add new Listing</button>
+      </div>
     </div>
   );
 }

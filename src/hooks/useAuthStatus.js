@@ -8,6 +8,7 @@ function useAuthStatus() {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
+        console.log(user.uid);
         setloggedIN(true);
       }
 
