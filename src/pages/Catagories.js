@@ -38,9 +38,8 @@ export default function Catagories() {
           console.log(doc.data());
 
           temp.push({ id: doc.id, data: doc.data() });
-
-          toast.success("All data loaded");
         });
+        toast.success("All data loaded");
         setListing(temp);
       } catch (error) {
         console.log(error);
