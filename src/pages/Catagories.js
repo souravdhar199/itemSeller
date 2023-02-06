@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import "../CSS/item.css";
 import Listing from "../components/Listing.js";
 import {
   collection,
@@ -37,7 +38,6 @@ export default function Catagories() {
         runq.forEach((doc) => {
           temp.push({ id: doc.id, data: doc.data() });
         });
-        toast.success("All data loaded");
         setListing(temp);
       } catch (error) {
         console.log(error);
@@ -46,7 +46,7 @@ export default function Catagories() {
     getListing();
   }, []);
   return (
-    <div>
+    <div className="parentItems">
       {listing.map((item) => (
         //Calling the Listing component
         <Listing data={item.data} id={item.id} />

@@ -133,12 +133,17 @@ export default function Profile() {
               type="text"
             />
             <p>Catagory</p>
-            <input
+            <select
               onChange={(e) =>
                 setNewList({ ...newList, Catagory: e.target.value })
               }
-              type="text"
-            />
+            >
+              <option>sports</option>
+              <option>Electronics</option>
+              <option>office</option>
+              <option>clothing</option>
+              <option>kids</option>
+            </select>
             <br />
             <button>Create new Listing</button>
           </form>
