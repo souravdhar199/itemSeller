@@ -1,47 +1,84 @@
 import React from "react";
 import { getAuth, updateProfile } from "firebase/auth";
 import { useState } from "react";
-
+import { useEffect } from "react";
+import useAuthStatus from "../hooks/useAuthStatus.js";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebaseconfig.js";
+import Listing from "../components/Listing.js";
 import {
   doc,
   addDoc,
   collection,
   updateDoc,
   serverTimestamp,
+  query,
+  where,
+  orderBy,
+  getDocs,
 } from "firebase/firestore";
 
 import "../CSS/profile.css";
 
 export default function Profile() {
+  // All the hooks
   const [updateEmail, setUpdateEmail] = new useState(false); // this hook will work as to update email
   const [newEmail, setNewEmail] = new useState(); // takes input data
+  const [showForm, setShowForm] = useState(false);
   const auth = getAuth();
+  const [loggedUser, setLogged] = useState({
+    name: auth.currentUser.displayName,
+    email: auth.currentUser.email,
+  });
   const [newList, setNewList] = new useState({
     name: "",
     Catagory: "",
     Price: "",
     imgurl: "",
   });
-  const [showForm, setShowForm] = useState(false);
-  const [loggedUser, setLogged] = useState({
-    name: auth.currentUser.displayName,
-    email: auth.currentUser.email,
-  });
+  const [listing, setListing] = new useState([]); // Storing all user Listing here
+  const { Uid } = useAuthStatus();
+  useEffect(() => {
+    const getListing = async () => {
+      try {
+        const listingData = collection(db, "products");
+        //get The query
+        const q = query(
+          listingData,
+          //if  a document has the same Uid
+          where("useRef", "==", Uid),
+          orderBy("timeStamp", "desc")
+        );
+
+        // Execute the query:
+        const runq = await getDocs(q);
+        const temp = [];
+        runq.forEach((doc) => {
+          console.log(doc.data());
+          temp.push({ id: doc.id, data: doc.data() });
+        });
+        setListing(temp);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getListing();
+  }, [Uid, showForm]);
 
   // this fucntion will add new item in database
   const addNewItem = async (e) => {
     e.preventDefault();
     try {
-      const newData = await addDoc(collection(db, "products"), {
+      await addDoc(collection(db, "products"), {
         name: newList.name,
         Price: newList.Price,
         City: newList.City,
         Catagory: newList.Catagory,
         timeStamp: serverTimestamp(),
         imgurl: newList.imgurl,
+        useRef: Uid,
       });
+      setShowForm(false);
     } catch (error) {
       console.log(error);
     }
@@ -53,6 +90,7 @@ export default function Profile() {
     navigate("/");
   };
 
+  // this function will update NAME
   const changeEmail = async (e) => {
     e.preventDefault();
 
@@ -150,6 +188,13 @@ export default function Profile() {
         ) : (
           <></>
         )}
+      </div>
+      <div className="parentItems">
+        <h1>Your Current Listing</h1>
+        {listing.map((item) => (
+          //Calling the Listing component
+          <Listing data={item.data} id={item.id} />
+        ))}
       </div>
     </div>
   );
