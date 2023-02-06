@@ -54,7 +54,6 @@ export default function Profile() {
         const runq = await getDocs(q);
         const temp = [];
         runq.forEach((doc) => {
-          console.log(doc.data());
           temp.push({ id: doc.id, data: doc.data() });
         });
         setListing(temp);
@@ -176,11 +175,13 @@ export default function Profile() {
                 setNewList({ ...newList, Catagory: e.target.value })
               }
             >
+              <option>Slect an Option</option>
               <option>sports</option>
               <option>Electronics</option>
               <option>office</option>
               <option>clothing</option>
               <option>kids</option>
+              <option>housematarials</option>
             </select>
             <br />
             <button>Create new Listing</button>
@@ -189,8 +190,8 @@ export default function Profile() {
           <></>
         )}
       </div>
+
       <div className="parentItems">
-        <h1>Your Current Listing</h1>
         {listing.map((item) => (
           //Calling the Listing component
           <Listing data={item.data} id={item.id} />

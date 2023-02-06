@@ -16,7 +16,6 @@ h1 {
   line-height: 2.3rem;
   padding: 0 1rem;
   width: 15rem;
-
   box-shadow: 0 0 0 2px var(--secondary);
 }
 .addList form select {
@@ -25,6 +24,5 @@ h1 {
   padding: 0 1rem;
   width: 16rem;
   height: 3rem;
-
   box-shadow: 0 0 0 2px var(--secondary);
 }
