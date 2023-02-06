@@ -35,8 +35,6 @@ export default function Catagories() {
         const runq = await getDocs(q);
         const temp = [];
         runq.forEach((doc) => {
-          console.log(doc.data());
-
           temp.push({ id: doc.id, data: doc.data() });
         });
         toast.success("All data loaded");

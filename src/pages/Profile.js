@@ -1,10 +1,16 @@
 import React from "react";
 import { getAuth, updateProfile } from "firebase/auth";
 import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebaseconfig.js";
-import { doc, addDoc, collection, updateDoc } from "firebase/firestore";
-import { setDoc } from "firebase/firestore";
+import {
+  doc,
+  addDoc,
+  collection,
+  updateDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 
 import "../CSS/profile.css";
 
@@ -12,24 +18,35 @@ export default function Profile() {
   const [updateEmail, setUpdateEmail] = new useState(false); // this hook will work as to update email
   const [newEmail, setNewEmail] = new useState(); // takes input data
   const auth = getAuth();
+  const [newList, setNewList] = new useState({
+    name: "",
+    Catagory: "",
+    Price: "",
+    imgurl: "",
+  });
+  const [showForm, setShowForm] = useState(false);
   const [loggedUser, setLogged] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
   });
 
   // this fucntion will add new item in database
-  const addNewItem = () => {
+  const addNewItem = async (e) => {
+    e.preventDefault();
     try {
-      const newData = addDoc(collection(db, "products"), {
-        name: "sadSourav",
-        City: "Atlanta",
-        Catagory: "sports",
-        timeStamp: "February 2, 2023 at 4:36:20 PM UTC-5",
+      const newData = await addDoc(collection(db, "products"), {
+        name: newList.name,
+        Price: newList.Price,
+        City: newList.City,
+        Catagory: newList.Catagory,
+        timeStamp: serverTimestamp(),
+        imgurl: newList.imgurl,
       });
     } catch (error) {
       console.log(error);
     }
   };
+
   const navigate = useNavigate();
   const onLogout = () => {
     auth.signOut();
@@ -71,7 +88,7 @@ export default function Profile() {
         )}
         {updateEmail ? (
           <form onSubmit={changeEmail}>
-            <label>Type your new name</label>
+            <p>Type your new name</p>
             <br></br>
             <input onChange={(e) => setNewEmail(e.target.value)} type="txt" />
             <br></br>
@@ -85,7 +102,49 @@ export default function Profile() {
         <button onClick={onLogout}>Logout</button>
       </div>
       <div className="addList">
-        <button onClick={addNewItem}>Add new Listing</button>
+        <button onClick={() => setShowForm(!showForm)}>
+          {showForm ? "Delete listing" : "Add new Listing"}
+        </button>
+
+        {showForm ? (
+          <form onSubmit={addNewItem}>
+            <p>Name</p>
+            <input
+              onChange={(e) => setNewList({ ...newList, name: e.target.value })}
+              type="text"
+            />
+            <p>Price</p>
+            <input
+              onChange={(e) =>
+                setNewList({ ...newList, Price: e.target.value })
+              }
+              type="number"
+            />
+            <p>Location</p>
+            <input
+              onChange={(e) => setNewList({ ...newList, City: e.target.value })}
+              type="text"
+            />
+            <p>Image Url</p>
+            <input
+              onChange={(e) =>
+                setNewList({ ...newList, imgurl: e.target.value })
+              }
+              type="text"
+            />
+            <p>Catagory</p>
+            <input
+              onChange={(e) =>
+                setNewList({ ...newList, Catagory: e.target.value })
+              }
+              type="text"
+            />
+            <br />
+            <button>Create new Listing</button>
+          </form>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
