@@ -6,13 +6,17 @@ export default function Listing({ data, id }) {
   const params = useParams();
   return (
     <div className="parent1">
-      <Link to={`/catagory/${params.catagoryName}/${id}`}>
+      <Link className="itemOne" to={`/catagory/${data.Catagory}/${id}`}>
         <div className="imageDiv">
           {" "}
           <img src={data.imgurl} alt="ball" />
         </div>
         <p>{data.name}</p>
-        <p>${data.Price}</p>
+
+        <p className="priceStyle">
+          <span>${data.Price}</span>
+        </p>
+
         <p>Location: {data.City}</p>
       </Link>
     </div>
