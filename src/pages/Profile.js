@@ -16,15 +16,18 @@ import {
   where,
   orderBy,
   getDocs,
+  deleteDoc,
 } from "firebase/firestore";
 
 import "../CSS/profile.css";
+import { async } from "@firebase/util";
 
 export default function Profile() {
   // All the hooks
   const [updateEmail, setUpdateEmail] = new useState(false); // this hook will work as to update email
   const [newEmail, setNewEmail] = new useState(); // takes input data
   const [showForm, setShowForm] = useState(false);
+  const [count, setCounter] = useState(0); // this hook will call triggered useState when we are expecting change in listing
   const auth = getAuth();
   const [loggedUser, setLogged] = useState({
     name: auth.currentUser.displayName,
@@ -62,7 +65,7 @@ export default function Profile() {
       }
     };
     getListing();
-  }, [Uid, showForm]);
+  }, [Uid, count]);
 
   // this fucntion will add new item in database
   const addNewItem = async (e) => {
@@ -77,6 +80,7 @@ export default function Profile() {
         imgurl: newList.imgurl,
         useRef: Uid,
       });
+      setCounter(count + 1);
       setShowForm(false);
     } catch (error) {
       console.log(error);
@@ -194,7 +198,18 @@ export default function Profile() {
       <div className="parentItems">
         {listing.map((item) => (
           //Calling the Listing component
-          <Listing data={item.data} id={item.id} />
+          <div className="userSee">
+            <Listing data={item.data} id={item.id} />
+            <button
+              onClick={async () => [
+                await deleteDoc(doc(db, "products", item.id)),
+                setCounter(count + 1),
+              ]}
+              className="deleteButton"
+            >
+              Delete
+            </button>
+          </div>
         ))}
       </div>
     </div>
