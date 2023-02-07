@@ -33,7 +33,7 @@ img {
   margin-top: 5rem;
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-gap: 15%;
+  grid-gap: 10%;
   justify-content: center;
 }
 
@@ -50,4 +50,8 @@ span {
 .deleteButton:hover {
   background-color: #e1331d;
   color: white;
+}
+
+.userSee {
+  padding-bottom: 1rem;
 }

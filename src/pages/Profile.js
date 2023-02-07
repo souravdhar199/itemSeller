@@ -198,7 +198,7 @@ export default function Profile() {
       <div className="parentItems">
         {listing.map((item) => (
           //Calling the Listing component
-          <div>
+          <div className="userSee">
             <Listing data={item.data} id={item.id} />
             <button
               onClick={async () => [
