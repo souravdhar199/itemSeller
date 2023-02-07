@@ -55,3 +55,14 @@ span {
 .userSee {
   padding-bottom: 1rem;
 }
+
+.updateButton {
+  width: 100%;
+  height: 3rem;
+  background-color: white;
+  border: none;
+}
+.updateButton:hover {
+  background-color: green;
+  color: white;
+}

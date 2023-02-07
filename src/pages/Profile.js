@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import useAuthStatus from "../hooks/useAuthStatus.js";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebaseconfig.js";
-import Listing from "../components/Listing.js";
+import ListingforProfile from "../components/ListingforProfile.js";
 import {
   doc,
   addDoc,
@@ -106,7 +106,7 @@ export default function Profile() {
         // update in FireStore
         const user = doc(db, "users", auth.currentUser.uid);
         await updateDoc(user, {
-          name: newEmail,
+          name: ,
         });
         setLogged({ ...loggedUser, name: newEmail });
       }
@@ -199,16 +199,11 @@ export default function Profile() {
         {listing.map((item) => (
           //Calling the Listing component
           <div className="userSee">
-            <Listing data={item.data} id={item.id} />
-            <button
-              onClick={async () => [
-                await deleteDoc(doc(db, "products", item.id)),
-                setCounter(count + 1),
-              ]}
-              className="deleteButton"
-            >
-              Delete
-            </button>
+            <ListingforProfile
+              data={item.data}
+              id={item.id}
+              refreshData={setCounter}
+            />
           </div>
         ))}
       </div>
