@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "../CSS/item.css";
 export default function Listing({ data, id }) {
-  const params = useParams();
   return (
     <div className="parent1">
       <Link className="itemOne" to={`/catagory/${data.Catagory}/${id}`}>
