@@ -1,35 +1,42 @@
-# itemSeller
-itemSeller is a simple platform for selling items online. It allows users to create a listing for their item, and other users can view and purchase the items.
+# itemSeller 
 
-## Technology Stack
-The following technologies are used in the itemSeller repository:
+itemSeller is an application for selling items online. It is written in JavaScript and can be deployed to any web server.
 
-React - A JavaScript library for building user interfaces.
-HTML and CSS - Used for the front-end development.
-Firebase Firestore - A flexible, scalable NoSQL cloud database used as the database for the project.
-Usage
-To run itemSeller, follow these steps:
+## Features
 
-## Clone the repository:
-shell
-Copy code
-$ git clone https://github.com/souravdhar199/itemSeller.git
-$ cd itemSeller
-Install the required packages:
-ruby
-Copy code
-$ npm install
-Run the project:
-ruby
-Copy code
-$ npm start
-You can now access itemSeller by visiting http://localhost:3000 in your browser.
+- Easy to use interface for listing items
+- Ability to add images to listings
+- Ability to search for items
+- Secure payment processing
+- Ability to keep track of orders and deliveries
+- Ability to manage inventory
+- Ability to set up custom pricing for items
+- Ability to set up discounts and promotions 
 
-#### Contributing
-Fork the repository
-Create your feature branch (git checkout -b my-new-feature)
-Commit your changes (git commit -am 'Add some feature')
-Push to the branch (git push origin my-new-feature)
-Create a new Pull Request
-License
-itemSeller is released under the MIT License. See the LICENSE file for more information.
+## Installation
+
+1. Clone the repository 
+
+```
+git clone https://github.com/souravdhar199/itemSeller.git
+```
+
+2. Install the dependencies
+
+```
+npm install
+```
+
+3. Run the application
+
+```
+npm start
+```
+
+## Documentation
+
+The documentation for this project can be found in the `docs` folder.
+
+## Contributing
+
+We welcome contributions to this project. Please read the [Contributing Guidelines](https://github.com/souravdhar199/itemSeller/blob/master/CONTRIBUTING.md) before submitting a
