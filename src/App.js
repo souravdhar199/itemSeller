@@ -13,6 +13,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/PrivateRoute";
 import Catagories from "./pages/Catagories";
+import SingleListing from "./pages/SingleListing";
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
           <Route path="/sign-in" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/forgot-passward" element={<Forgotpassward />} />
+          <Route
+            path="/catagory/:catagoryName/:id"
+            element={<SingleListing />}
+          />
         </Routes>
       </Router>
       <ToastContainer />
