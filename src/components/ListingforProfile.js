@@ -12,6 +12,7 @@ export default function ListingforProfile({ data, id, refreshData, refresh }) {
     Catagory: null,
     Price: null,
     imgurl: null,
+    onSale: null,
   });
   const [showForm, setShowForm] = new useState(false);
   //this updateListing() will update the data in firebase
@@ -27,6 +28,7 @@ export default function ListingforProfile({ data, id, refreshData, refresh }) {
         City: newList.City != null ? newList.City : data.City,
         Catagory: newList.Catagory != null ? newList.Catagory : data.Catagory,
         imgurl: newList.imgurl != null ? newList.imgurl : data.imgurl,
+        onSale: newList.onSale,
       });
       refreshData(refresh + 1);
     } catch (e) {
@@ -90,6 +92,14 @@ export default function ListingforProfile({ data, id, refreshData, refresh }) {
             <option>clothing</option>
             <option>kids</option>
             <option>housematarials</option>
+          </select>
+          <p>List this product on Clearence</p>
+          <select
+            onChange={(e) => setNewList({ ...newList, onSale: e.target.value })}
+          >
+            <option>Select an Option</option>
+            <option>Yes</option>
+            <option>No</option>
           </select>
           <br />
           <button type="submit" className="updateButton">
