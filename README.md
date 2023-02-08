@@ -10,7 +10,7 @@ Firebase Firestore - A flexible, scalable NoSQL cloud database used as the datab
 Usage
 To run itemSeller, follow these steps:
 
-### Clone the repository:
+## Clone the repository:
 shell
 Copy code
 $ git clone https://github.com/souravdhar199/itemSeller.git
