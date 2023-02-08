@@ -2,34 +2,33 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../CSS/item.css";
 import { deleteDoc, doc, updateDoc } from "firebase/firestore";
-import { Auth } from "firebase/auth";
 import { db } from "../firebaseconfig.js";
 import { useState } from "react";
 import "../CSS/profile.css";
-import { async } from "@firebase/util";
-export default function ListingforProfile({ data, id, refreshData }) {
+export default function ListingforProfile({ data, id, refreshData, refresh }) {
   // This hook will update the listing
   const [newList, setNewList] = new useState({
-    name: "",
-    Catagory: "",
-    Price: "",
-    imgurl: "",
+    name: null,
+    Catagory: null,
+    Price: null,
+    imgurl: null,
   });
   const [showForm, setShowForm] = new useState(false);
   //this updateListing() will update the data in firebase
+  //
   const updateListing = async (e) => {
     e.preventDefault();
     setShowForm(!showForm);
     try {
       const item = doc(db, "products", id);
       await updateDoc(item, {
-        name: newList.name,
-        Price: newList.Price,
-        City: newList.City,
-        Catagory: newList.Catagory,
-        imgurl: newList.imgurl,
+        name: newList.name != null ? newList.name : data.name,
+        Price: newList.Price != null ? newList.Price : data.Price,
+        City: newList.City != null ? newList.City : data.City,
+        Catagory: newList.Catagory != null ? newList.Catagory : data.Catagory,
+        imgurl: newList.imgurl != null ? newList.imgurl : data.imgurl,
       });
-      refreshData(12 + 12);
+      refreshData(refresh + 1);
     } catch (e) {
       console.log(e);
     }
@@ -55,26 +54,31 @@ export default function ListingforProfile({ data, id, refreshData }) {
         <form className="formUpdate" onSubmit={updateListing}>
           <p>Name</p>
           <input
+            defaultValue={data.name}
             onChange={(e) => setNewList({ ...newList, name: e.target.value })}
             type="text"
           />
           <p>Price</p>
           <input
+            defaultValue={data.Price}
             onChange={(e) => setNewList({ ...newList, Price: e.target.value })}
             type="number"
           />
           <p>Location</p>
           <input
+            defaultValue={data.City}
             onChange={(e) => setNewList({ ...newList, City: e.target.value })}
             type="text"
           />
           <p>Image Url</p>
           <input
+            defaultValue={data.imgurl}
             onChange={(e) => setNewList({ ...newList, imgurl: e.target.value })}
             type="text"
           />
           <p>Catagory</p>
           <select
+            defaultValue={data.Catagory}
             onChange={(e) =>
               setNewList({ ...newList, Catagory: e.target.value })
             }
@@ -101,7 +105,7 @@ export default function ListingforProfile({ data, id, refreshData }) {
       <button
         onClick={async () => [
           await deleteDoc(doc(db, "products", id)),
-          refreshData(1 + 1),
+          refreshData(refresh + 1),
         ]}
         className="deleteButton"
       >

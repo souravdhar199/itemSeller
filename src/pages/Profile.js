@@ -106,7 +106,7 @@ export default function Profile() {
         // update in FireStore
         const user = doc(db, "users", auth.currentUser.uid);
         await updateDoc(user, {
-          name: ,
+          name: newEmail,
         });
         setLogged({ ...loggedUser, name: newEmail });
       }
@@ -203,6 +203,7 @@ export default function Profile() {
               data={item.data}
               id={item.id}
               refreshData={setCounter}
+              refresh={count}
             />
           </div>
         ))}
