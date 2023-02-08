@@ -1,17 +1,16 @@
 # itemSeller 
 
-itemSeller is an application for selling items online. It is written in JavaScript and can be deployed to any web server.
+itemSeller is an application for buying/selling items online.
 
 ## Features
+- Users can securely access the project by entering their credentials. Also they can create a new account, reset forgotten passwords, and log in with existing         credentials. 
+- User can create profiles with information such as profile picture, name and email. Also user can update their name/profile picture anytime. 
+- Sellers will receive an email if any buyers want's to buy their products.
+- All the listing item will be divided into catagroies, such as electrocnis, office, sports etc.
+- Sellers are able to create new listing as well as they can delete and update any listing. 
+- Any listing that marked sale it will show at clearence page. 
 
-- Easy to use interface for listing items
-- Ability to add images to listings
-- Ability to search for items
-- Secure payment processing
-- Ability to keep track of orders and deliveries
-- Ability to manage inventory
-- Ability to set up custom pricing for items
-- Ability to set up discounts and promotions 
+
 
 ## Installation
 
