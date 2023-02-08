@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import "../CSS/item.css";
 export default function Listing({ data, id }) {
   return (
@@ -13,7 +12,7 @@ export default function Listing({ data, id }) {
         <p>{data.name}</p>
 
         <p className="priceStyle">
-          <span>${data.Price}</span>
+          <span className="saleTag">${data.Price}</span>
         </p>
 
         <p>Location: {data.City}</p>
