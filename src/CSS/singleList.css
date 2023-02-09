@@ -25,12 +25,12 @@
   width: auto;
   height: 38px;
 
-  background-color: #6ab070;
+  background-color: green;
   -webkit-border-radius: 3px 4px 4px 3px;
   -moz-border-radius: 3px 4px 4px 3px;
   border-radius: 3px 4px 4px 3px;
 
-  border-left: 1px solid #6ab070;
+  border-left: 1px solid green;
 
   /* This makes room for the triangle */
   margin-left: 19px;
@@ -54,7 +54,7 @@
   height: 0;
   border-top: 19px solid transparent;
   border-bottom: 19px solid transparent;
-  border-right: 19px solid #6ab070;
+  border-right: 19px solid green;
 }
 
 /* Makes the circle */
