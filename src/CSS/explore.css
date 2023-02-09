@@ -10,18 +10,16 @@
 }
 
 .catagories a div {
-  padding: 8px 8px;
+  padding: 1rem 1rem;
   color: #03e0f4;
-  font-size: 20px;
+  font-size: 1.3rem;
   text-transform: uppercase;
   overflow: hidden;
   transition: 0.5s;
-  margin-top: 80px;
+  margin-top: 2rems;
   letter-spacing: 4px;
   text-align: center;
-  min-width: 400px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  width: 15rem;
 }
 a {
   text-decoration: none;
@@ -30,7 +28,6 @@ a {
 .catagories a div:hover {
   background: #03e9f4;
   color: black;
-  border-radius: 5px;
 }
 .explorehead {
   text-align: center;
