@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { cloneElement, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { db } from "../firebaseconfig";
@@ -14,6 +14,7 @@ import {
 
 function SingleListing() {
   const [listing, setListing] = new useState({});
+  const [sellerInfo, setSellerInfo] = new useState({});
   const params = useParams();
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function SingleListing() {
 
         // Execute the query:
         const runq = await getDocs(q);
-        const temp = [];
+
         runq.forEach((doc) => {
           //this will set the hook to only one collection
           if (doc.id === params.id) {
@@ -44,6 +45,30 @@ function SingleListing() {
     getListing();
   }, []);
 
+  // this hook will trigger when lsiting is fullfill
+  useEffect(() => {
+    const getListing = async () => {
+      try {
+        const listingData = collection(db, "users");
+        //get The query
+        const q = query(listingData);
+
+        // Execute the query:
+        const runq = await getDocs(q);
+
+        runq.forEach((doc) => {
+          //this will set the hook to only one collection
+          if (doc.id === listing.useRef) {
+            setSellerInfo({ ...doc.data() });
+          }
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getListing();
+  }, [listing]);
+
   return (
     <div className="parentSingleList">
       <div className="forImge">
@@ -53,7 +78,11 @@ function SingleListing() {
         <p className="ItemName">{listing.name}</p>
         <p className="card-price">${listing.Price}</p>
         <p>{listing.City}</p>
-        <button className="conTactSeller">Contact Seller</button>
+        <a
+          href={`mailto:${sellerInfo.email}?subject=ItemSeller regarding: ${listing.name}&body=Hi ${sellerInfo.name}, `}
+        >
+          <button className="conTactSeller">Contact Seller</button>
+        </a>
       </div>
     </div>
   );
