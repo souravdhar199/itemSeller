@@ -16,7 +16,7 @@ function Signin() {
     if (!loggedIN) {
       toast.error("not logged in");
     }
-  }, []);
+  });
 
   //this will run seperately
   const onSubmit = async (e) => {

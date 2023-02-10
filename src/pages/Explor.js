@@ -1,19 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../CSS/explore.css";
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { db } from "../firebaseconfig";
 import Listing from "../components/Listing";
 import Pulse from "react-reveal/Pulse";
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-  orderBy,
-  limit,
-} from "firebase/firestore";
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 
 function Explor() {
   const [listing, setListing] = new useState([]);
@@ -43,7 +34,7 @@ function Explor() {
       }
     };
     getListing();
-  }, [catagory]);
+  }, [catagory, setListing]);
 
   //this hook will trigger when the page will load up for first time
   useEffect(() => {
@@ -65,7 +56,7 @@ function Explor() {
       }
     };
     getListing();
-  }, [loadAll]);
+  }, [loadAll, setListing]);
 
   return (
     <div className="homePage">
