@@ -16,7 +16,8 @@ function Signin() {
     if (!loggedIN) {
       toast.error("not logged in");
     }
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   //this will run seperately
   const onSubmit = async (e) => {
