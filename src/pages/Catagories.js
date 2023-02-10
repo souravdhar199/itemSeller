@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
 import "../CSS/item.css";
 import Listing from "../components/Listing.js";
 import {
@@ -11,10 +10,8 @@ import {
   where,
   orderBy,
   limit,
-  startAfter,
 } from "firebase/firestore";
 import { db } from "../firebaseconfig.js";
-import { async } from "@firebase/util";
 
 export default function Catagories() {
   const [listing, setListing] = new useState([]);
@@ -44,7 +41,7 @@ export default function Catagories() {
       }
     };
     getListing();
-  }, []);
+  }, [params.catagoryName, setListing]);
   return (
     <div className="parentItems">
       {listing.map((item) => (
