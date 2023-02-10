@@ -16,11 +16,9 @@ import {
   where,
   orderBy,
   getDocs,
-  deleteDoc,
 } from "firebase/firestore";
 
 import "../CSS/profile.css";
-import { async } from "@firebase/util";
 
 export default function Profile() {
   // All the hooks
@@ -65,6 +63,7 @@ export default function Profile() {
       }
     };
     getListing();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Uid, count]);
 
   // this fucntion will add new item in database

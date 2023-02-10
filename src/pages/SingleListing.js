@@ -1,4 +1,5 @@
-import React, { cloneElement, useState } from "react";
+/* eslint-disable react/jsx-no-comment-textnodes */
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { db } from "../firebaseconfig";
@@ -43,6 +44,7 @@ function SingleListing() {
       }
     };
     getListing();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // this hook will trigger when lsiting is fullfill
@@ -67,12 +69,13 @@ function SingleListing() {
       }
     };
     getListing();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [listing]);
 
   return (
     <div className="parentSingleList">
       <div className="forImge">
-        <img src={listing.imgurl} />
+        <img src={listing.imgurl} alt="img" />
       </div>
       <div className="infoList">
         <p className="ItemName">{listing.name}</p>
