@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { db } from "../firebaseconfig";
 import Listing from "../components/Listing";
+import Pulse from "react-reveal/Pulse";
 import {
   collection,
   getDocs,
@@ -80,10 +81,13 @@ function Explor() {
         </select>
         <br />
       </form>
+
       <div className="parentItems">
         {listing.map((item) => (
           //Calling the Listing component
-          <Listing data={item.data} id={item.id} />
+          <Pulse>
+            <Listing data={item.data} id={item.id} />
+          </Pulse>
         ))}
       </div>
     </div>
