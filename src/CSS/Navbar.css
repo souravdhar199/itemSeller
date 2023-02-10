@@ -8,8 +8,7 @@ nav ul li {
 
 nav ul {
   display: flex;
-  justify-content: start;
-  gap: 10%;
+  gap: 20%;
 }
 nav ul li {
   list-style: none;

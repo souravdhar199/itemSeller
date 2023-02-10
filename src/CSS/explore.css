@@ -35,5 +35,22 @@ a {
 }
 
 .homePage {
+  margin-top: 6rem;
   text-align: center;
+}
+
+.logoImage {
+  margin-left: 5rem;
+  width: 20rem;
+}
+
+nav {
+  display: flex;
+  gap: 20%;
+}
+
+ul {
+  width: 100%;
+
+  padding-top: 2.5rem;
 }
