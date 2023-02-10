@@ -18,6 +18,7 @@ import {
 function Explor() {
   const [listing, setListing] = new useState([]);
   const [catagory, Setcatagory] = new useState(null);
+  const [loadAll, setLoadall] = new useState(false);
   // this hook will trigger when user choses a catagory
   useEffect(() => {
     const getListing = async () => {
@@ -64,13 +65,19 @@ function Explor() {
       }
     };
     getListing();
-  }, []);
+  }, [loadAll]);
 
   return (
     <div className="homePage">
       <h1>Shop by Catagory</h1>
       <form className="formUpdate">
-        <select onChange={(e) => Setcatagory(e.target.value)}>
+        <select
+          onChange={(e) =>
+            e.target.value === "Slect an Option"
+              ? setLoadall(!loadAll)
+              : Setcatagory(e.target.value)
+          }
+        >
           <option>Slect an Option</option>
           <option>sports</option>
           <option>Electronics</option>
