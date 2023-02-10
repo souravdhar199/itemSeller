@@ -1,14 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import "../CSS/item.css";
 import Listing from "../components/Listing.js";
 import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 import { db } from "../firebaseconfig.js";
 export default function Sales() {
   const [listing, setListing] = new useState([]);
-  const params = useParams();
-
   useEffect(() => {
     const getListing = async () => {
       try {
@@ -32,6 +29,7 @@ export default function Sales() {
       }
     };
     getListing();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className="parentItems">

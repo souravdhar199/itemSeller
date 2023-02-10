@@ -9,7 +9,10 @@ export default function Navbar() {
     <div className="navDiv">
       <nav>
         <div className="logoImage" back onClick={() => navigate("/")}>
-          <img src="https://dynamic.brandcrowd.com/asset/logo/b34a16f6-26e8-4c5c-a2f7-76a2a6fb458c/logo-search-grid-1x?logoTemplateVersion=1&v=637641652227830000&text=itemSeller" />
+          <img
+            alt="img"
+            src="https://dynamic.brandcrowd.com/asset/logo/b34a16f6-26e8-4c5c-a2f7-76a2a6fb458c/logo-search-grid-1x?logoTemplateVersion=1&v=637641652227830000&text=itemSeller"
+          />
         </div>
         <ul>
           <li onClick={() => navigate("/")}>Explore</li>
