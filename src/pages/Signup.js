@@ -58,12 +58,10 @@ function Signup() {
   return (
     <>
       <div className="login-box">
-        <header>
-          <h1>Hi, welcome!</h1>
-        </header>
-        <form onSubmit={onSubmit}>
+        <form className="formUpdatess" onSubmit={onSubmit}>
           <div className="user-box">
-            <label>Full name </label>
+            <h1>Hi, welcome!</h1>
+            <p>Full name </p>
             <input
               type="name"
               value={name}
@@ -75,7 +73,7 @@ function Signup() {
               }
             />
             <br></br>
-            <label> Email </label>
+            <p> Email </p>
             <input
               type="email"
               s
@@ -87,7 +85,7 @@ function Signup() {
                 }))
               }
             />
-            <label> Passward </label>
+            <p> Passward </p>
             <input
               type={showPass ? "text" : "password"}
               value={pass}
@@ -98,16 +96,20 @@ function Signup() {
                 }))
               }
             />
-            <button
+            <br />
+            {/* <button
+              className="buttonSignin"
               onClick={(e) => [e.preventDefault(), SetShowpass(!showPass)]}
             >
               {showPass ? "Hide Pass" : "Show Pass"}
-            </button>
+            </button> */}
           </div>
-          <button>Sign Up</button>
+          <button className="buttonSignin">Sign Up</button>
           <br></br>
 
-          <Link to="/sign-in">Sign In</Link>
+          <button className="buttonSignin" onClick={() => navigate("/sign-in")}>
+            Sign-In
+          </button>
         </form>
       </div>
     </>

@@ -2,22 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../CSS/signin&signup.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { toast } from "react-toastify";
-import useAuthStatus from "../hooks/useAuthStatus";
 
 function Signin() {
   const [showPass, SetShowpass] = new useState(false);
   const [dataForm, setDataform] = new useState({ email: "", pass: "" });
   const { email, pass } = dataForm;
   const navigate = useNavigate();
-  const { loggedIN } = useAuthStatus();
-
-  useEffect(() => {
-    if (!loggedIN) {
-      toast.error("not logged in");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   //this will run seperately
   const onSubmit = async (e) => {
@@ -33,18 +23,15 @@ function Signin() {
       })
       .catch((error) => {
         console.log(error);
-        toast("Wrong user Authentication");
       });
   };
   return (
     <>
       <div className="login-box">
-        <header>
-          <h1>Hi Welcome! </h1>
-        </header>
-        <form onSubmit={onSubmit}>
+        <form className="formUpdatess" onSubmit={onSubmit}>
           <div className="user-box">
-            <label>Email</label>
+            <h1>Hi Welcome!</h1>
+            <p>Email</p>
             <input
               type="email"
               value={email}
@@ -55,7 +42,7 @@ function Signin() {
                 }))
               }
             />
-            <label>Passward</label>
+            <p>Passward</p>
             <input
               type={showPass ? "text" : "password"}
               value={pass}
@@ -66,15 +53,28 @@ function Signin() {
                 }))
               }
             />
-            <button
+            <br />
+            {/* <button
+              className="buttonSignin"
               onClick={(e) => [e.preventDefault(), SetShowpass(!showPass)]}
             >
               {showPass ? "Hide Pass" : "Show Pass"}
-            </button>
+            </button> */}
           </div>
-          <button>Sign IN</button>
-          <Link to="/forgot-passward">Forgot passward</Link>
-          <Link to="/sign-up">Sign Up</Link>
+          <button className="buttonSignin">Sign IN</button>
+          <br />
+          <button
+            className="buttonSignin"
+            onClick={() => navigate("/forgot-passward")}
+          >
+            {" "}
+            Forgot Passward
+          </button>
+          <br />
+          <button className="buttonSignin" onClick={() => navigate("/sign-up")}>
+            {" "}
+            Sign-Up
+          </button>
         </form>
       </div>
     </>

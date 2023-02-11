@@ -4,13 +4,47 @@
 nav ul li {
   list-style: none;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 nav ul {
   display: flex;
   gap: 20%;
 }
-nav ul li {
-  list-style: none;
-  font-size: 1.2rem;
+html {
+  font-size: 100%;
+}
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 85%;
+  }
+}
+@media screen and (max-width: 850px) {
+  html {
+    font-size: 75%;
+  }
+  .parentItems {
+    grid-template-columns: auto;
+  }
+}
+@media screen and (max-width: 750px) {
+  html {
+    font-size: 65%;
+  }
+}
+@media screen and (max-width: 650px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  html {
+    font-size: 45%;
+  }
+}
+@media screen and (max-width: 540px) {
+  html {
+    font-size: 35%;
+  }
 }
