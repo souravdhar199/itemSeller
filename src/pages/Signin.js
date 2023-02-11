@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../CSS/signin&signup.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 function Signin() {
-  const [showPass, SetShowpass] = new useState(false);
+  // const [showPass, SetShowpass] = new useState(false);
   const [dataForm, setDataform] = new useState({ email: "", pass: "" });
   const { email, pass } = dataForm;
   const navigate = useNavigate();
@@ -44,7 +44,6 @@ function Signin() {
             />
             <p>Passward</p>
             <input
-              type={showPass ? "text" : "password"}
               value={pass}
               onChange={(e) =>
                 setDataform((prevState) => ({

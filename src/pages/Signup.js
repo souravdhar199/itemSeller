@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../CSS/signin&signup.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -13,7 +13,7 @@ import { db } from "../firebaseconfig.js";
 import { toast } from "react-toastify";
 
 function Signup() {
-  const [showPass, SetShowpass] = new useState(false);
+  // const [showPass, SetShowpass] = new useState(false);
   const [dataForm, setDataform] = new useState({
     name: " ",
     email: "",
@@ -87,7 +87,6 @@ function Signup() {
             />
             <p> Passward </p>
             <input
-              type={showPass ? "text" : "password"}
               value={pass}
               onChange={(e) =>
                 setDataform((prevState) => ({
