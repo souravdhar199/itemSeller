@@ -38,7 +38,7 @@ export default function ListingforProfile({ data, id, refreshData, refresh }) {
   return (
     <>
       <div className="parent1">
-        <Link className="itemOne" to={`/catagory/${data.Catagory}/${id}`}>
+        <Link className="itemOne" to={`/${data.Catagory}/${id}`}>
           <div className="imageDiv">
             {" "}
             <img src={data.imgurl} alt="ball" />

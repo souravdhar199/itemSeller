@@ -4,7 +4,7 @@ import "../CSS/item.css";
 export default function Listing({ data, id }) {
   return (
     <div className="parent1">
-      <Link className="itemOne" to={`/catagory/${data.Catagory}/${id}`}>
+      <Link className="itemOne" to={`/${data.Catagory}/${id}`}>
         <div className="imageDiv">
           {" "}
           <img src={data.imgurl} alt="ball" />
