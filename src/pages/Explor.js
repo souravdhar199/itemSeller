@@ -34,7 +34,7 @@ function Explor() {
       }
     };
     getListing();
-  }, [catagory, setListing]);
+  }, [catagory]);
 
   //this hook will trigger when the page will load up for first time
   useEffect(() => {
@@ -56,7 +56,7 @@ function Explor() {
       }
     };
     getListing();
-  }, [loadAll, setListing]);
+  }, [loadAll]);
 
   return (
     <div className="homePage">
@@ -65,8 +65,8 @@ function Explor() {
         <select
           onChange={(e) =>
             e.target.value === "Slect an Option"
-              ? setLoadall(!loadAll)
-              : Setcatagory(e.target.value)
+              ? setLoadall(true)
+              : [setLoadall(false), Setcatagory(e.target.value)]
           }
         >
           <option>Slect an Option</option>
