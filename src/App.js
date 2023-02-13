@@ -11,7 +11,6 @@ import Navbar from "./components/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/PrivateRoute";
-import Catagories from "./pages/Catagories";
 import SingleListing from "./pages/SingleListing";
 
 function App() {
@@ -22,8 +21,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Explor />} />
           <Route path="/sales" element={<Sales />} />
-          <Route path="/catagories/:catagoryName" element={<Catagories />} />
-
           {/* This is a Nested Route */}
           <Route path="/profile" element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
@@ -31,10 +28,7 @@ function App() {
           <Route path="/sign-in" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/forgot-passward" element={<Forgotpassward />} />
-          <Route
-            path="/catagory/:catagoryName/:id"
-            element={<SingleListing />}
-          />
+          <Route path="/:catagoryName/:id" element={<SingleListing />} />
         </Routes>
       </Router>
       <ToastContainer />
