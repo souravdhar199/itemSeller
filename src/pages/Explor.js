@@ -12,6 +12,7 @@ function Explor() {
   const [loadAll, setLoadall] = new useState(false);
   // this hook will trigger when user choses a catagory
   useEffect(() => {
+    console.log("Catagory");
     const getListing = async () => {
       try {
         const listingData = collection(db, "products");
@@ -34,10 +35,12 @@ function Explor() {
       }
     };
     getListing();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [catagory]);
 
   //this hook will trigger when the page will load up for first time
   useEffect(() => {
+    console.log("All");
     const getListing = async () => {
       try {
         const listingData = collection(db, "products");
@@ -56,6 +59,7 @@ function Explor() {
       }
     };
     getListing();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadAll]);
 
   return (
@@ -65,8 +69,8 @@ function Explor() {
         <select
           onChange={(e) =>
             e.target.value === "Slect an Option"
-              ? setLoadall(true)
-              : [setLoadall(false), Setcatagory(e.target.value)]
+              ? [setLoadall(!loadAll), Setcatagory(null)]
+              : Setcatagory(e.target.value)
           }
         >
           <option>Slect an Option</option>
