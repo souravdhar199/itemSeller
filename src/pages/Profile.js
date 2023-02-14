@@ -122,33 +122,36 @@ export default function Profile() {
         {updateEmail ? (
           <></>
         ) : (
-          <button onClick={() => setUpdateEmail(!updateEmail)}>
+          <button
+            className="buttonSignin"
+            onClick={() => setUpdateEmail(!updateEmail)}
+          >
             Update Name
           </button>
         )}
         {updateEmail ? (
-          <form onSubmit={changeEmail}>
-            <p>Type your new name</p>
-            <br></br>
-            <input onChange={(e) => setNewEmail(e.target.value)} type="txt" />
-            <br></br>
-            <button>Done</button>
-          </form>
+          <div className="addList">
+            <form onSubmit={changeEmail}>
+              <p>Type your new name</p>
+              <input onChange={(e) => setNewEmail(e.target.value)} type="txt" />
+              <br></br>
+              <button className="buttonSignin">Done</button>
+            </form>
+          </div>
         ) : (
           <></>
         )}
 
         <br></br>
-        <button onClick={onLogout}>Logout</button>
       </div>
       <div className="addList">
-        <button onClick={() => setShowForm(!showForm)}>
+        <button className="buttonSignin" onClick={() => setShowForm(!showForm)}>
           {showForm ? "Delete listing" : "Add new Listing"}
         </button>
 
         {showForm ? (
           <form onSubmit={addNewItem}>
-            <p>Name</p>
+            <p>Name of the Product</p>
             <input
               onChange={(e) => setNewList({ ...newList, name: e.target.value })}
               type="text"
@@ -165,7 +168,7 @@ export default function Profile() {
               onChange={(e) => setNewList({ ...newList, City: e.target.value })}
               type="text"
             />
-            <p>Image Url</p>
+            <p>Please pasete the Image Url link </p>
             <input
               onChange={(e) =>
                 setNewList({ ...newList, imgurl: e.target.value })
@@ -187,13 +190,17 @@ export default function Profile() {
               <option>housematarials</option>
             </select>
             <br />
-            <button>Create new Listing</button>
+            <button className="buttonSignin">Create new Listing</button>
           </form>
         ) : (
           <></>
         )}
+        <br></br>
+        <button className="buttonSignin" onClick={onLogout}>
+          Logout
+        </button>
       </div>
-
+      <h1>Your current listings </h1>
       <div className="parentItems">
         {listing.map((item) => (
           //Calling the Listing component

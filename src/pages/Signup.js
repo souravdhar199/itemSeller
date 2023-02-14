@@ -85,7 +85,7 @@ function Signup() {
                 }))
               }
             />
-            <p> Passward </p>
+            <p> Password </p>
             <input
               value={pass}
               onChange={(e) =>

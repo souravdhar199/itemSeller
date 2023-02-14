@@ -31,11 +31,6 @@ a {
   text-align: center;
 }
 
-.logoImage {
-  margin-left: 5rem;
-  width: 20rem;
-}
-
 nav {
   display: flex;
   gap: 20%;
@@ -44,41 +39,4 @@ nav {
 ul {
   width: 100%;
   padding-top: 2.5rem;
-}
-html {
-  font-size: 100%;
-}
-@media screen and (max-width: 1000px) {
-  html {
-    font-size: 85%;
-  }
-}
-@media screen and (max-width: 850px) {
-  html {
-    font-size: 75%;
-  }
-  .parentItems {
-    grid-template-columns: auto;
-  }
-}
-@media screen and (max-width: 750px) {
-  html {
-    font-size: 65%;
-  }
-}
-@media screen and (max-width: 650px) {
-  html {
-    font-size: 55%;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  html {
-    font-size: 45%;
-  }
-}
-@media screen and (max-width: 540px) {
-  html {
-    font-size: 35%;
-  }
 }

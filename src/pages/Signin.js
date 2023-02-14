@@ -42,7 +42,7 @@ function Signin() {
                 }))
               }
             />
-            <p>Passward</p>
+            <p>Password</p>
             <input
               value={pass}
               onChange={(e) =>
@@ -67,7 +67,7 @@ function Signin() {
             onClick={() => navigate("/forgot-passward")}
           >
             {" "}
-            Forgot Passward
+            Forgot Password
           </button>
           <br />
           <button className="buttonSignin" onClick={() => navigate("/sign-up")}>
