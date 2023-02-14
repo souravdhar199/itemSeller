@@ -71,3 +71,48 @@ span {
   background-color: green;
   color: white;
 }
+html {
+  font-size: 100%;
+}
+@media screen and (max-width: 1291px) {
+  html {
+    font-size: 85%;
+  }
+  body {
+    background-color: red;
+  }
+}
+@media screen and (max-width: 1133px) {
+  html {
+    font-size: 80%;
+  }
+  body {
+    background-color: yellow;
+  }
+}
+@media screen and (max-width: 1097px) {
+  html {
+    font-size: 70%;
+  }
+  body {
+    background-color: green;
+  }
+}
+
+@media screen and (max-width: 983px) {
+  html {
+    font-size: 50%;
+  }
+  body {
+    background-color: orange;
+  }
+  .parentItems {
+    grid-template-columns: auto auto;
+    border: red solid;
+    justify-content: center;
+  }
+  .parent1 {
+    border: red solid;
+    width: 29rem;
+  }
+}
