@@ -52,6 +52,7 @@ html {
 
 @media screen and (max-width: 516px) {
   .logoImage {
+    padding-top: 1.75rem;
     margin-left: 1rem;
   }
   html {
