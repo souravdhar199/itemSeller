@@ -130,8 +130,12 @@ html {
   }
 }
 @media screen and (max-width: 404px) {
+  html {
+    font-size: 45%;
+  }
+
   .parent1 {
-    width: 37rem;
-    height: 57rem;
+    width: 35rem;
+    height: 50rem;
   }
 }
