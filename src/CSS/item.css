@@ -139,3 +139,13 @@ html {
     height: 50rem;
   }
 }
+@media screen and (max-width: 300px) {
+  html {
+    font-size: 35%;
+  }
+
+  .parent1 {
+    width: 35rem;
+    height: 50rem;
+  }
+}
