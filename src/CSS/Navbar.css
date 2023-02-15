@@ -32,32 +32,32 @@ html {
   html {
     font-size: 85%;
   }
-  body {
-    background-color: red;
-  }
 }
 @media screen and (max-width: 1133px) {
   html {
     font-size: 80%;
-  }
-  body {
-    background-color: yellow;
   }
 }
 @media screen and (max-width: 1097px) {
   html {
     font-size: 70%;
   }
-  body {
-    background-color: green;
-  }
 }
 
 @media screen and (max-width: 983px) {
   html {
-    font-size: 50%;
+    font-size: 60%;
   }
-  body {
-    background-color: orange;
+}
+
+@media screen and (max-width: 516px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media screen and (max-width: 404px) {
+  html {
+    font-size: 35%;
   }
 }

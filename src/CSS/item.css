@@ -78,41 +78,60 @@ html {
   html {
     font-size: 85%;
   }
-  body {
-    background-color: red;
-  }
 }
 @media screen and (max-width: 1133px) {
   html {
     font-size: 80%;
-  }
-  body {
-    background-color: yellow;
   }
 }
 @media screen and (max-width: 1097px) {
   html {
     font-size: 70%;
   }
-  body {
-    background-color: green;
-  }
 }
 
 @media screen and (max-width: 983px) {
   html {
-    font-size: 50%;
+    font-size: 60%;
   }
-  body {
-    background-color: orange;
-  }
+
   .parentItems {
     grid-template-columns: auto auto;
-    border: red solid;
+
     justify-content: center;
   }
   .parent1 {
-    border: red solid;
     width: 29rem;
+  }
+}
+
+@media screen and (max-width: 627px) {
+  html {
+    font-size: 60%;
+  }
+
+  .parentItems {
+    grid-template-columns: auto;
+
+    justify-content: center;
+  }
+  .parent1 {
+    width: 29rem;
+    height: 37rem;
+  }
+}
+@media screen and (max-width: 516px) {
+  html {
+    font-size: 55%;
+  }
+  .parent1 {
+    width: 35rem;
+    height: 45rem;
+  }
+}
+@media screen and (max-width: 404px) {
+  .parent1 {
+    width: 40rem;
+    height: 50rem;
   }
 }
