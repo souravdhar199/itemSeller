@@ -71,41 +71,67 @@ span {
   background-color: green;
   color: white;
 }
-
-@media screen and (max-width: 1550px) {
+html {
+  font-size: 100%;
+}
+@media screen and (max-width: 1291px) {
   html {
-    font-size: 30%;
+    font-size: 85%;
   }
+}
+@media screen and (max-width: 1133px) {
+  html {
+    font-size: 80%;
+  }
+}
+@media screen and (max-width: 1097px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media screen and (max-width: 983px) {
+  html {
+    font-size: 60%;
+  }
+
   .parentItems {
     grid-template-columns: auto auto;
+
+    justify-content: center;
+  }
+  .parent1 {
+    width: 29rem;
   }
 }
-@media screen and (max-width: 850px) {
+
+@media screen and (max-width: 627px) {
   html {
-    font-size: 75%;
+    font-size: 60%;
   }
+
   .parentItems {
     grid-template-columns: auto;
+
+    justify-content: center;
+  }
+  .parent1 {
+    width: 29rem;
+    height: 37rem;
   }
 }
-@media screen and (max-width: 750px) {
-  html {
-    font-size: 65%;
-  }
-}
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 516px) {
   html {
     font-size: 55%;
   }
-}
-
-@media screen and (max-width: 550px) {
-  html {
-    font-size: 35%;
+  .parent1 {
+    width: 35rem;
+    height: 45rem;
   }
 }
-@media screen and (max-width: 540px) {
-  html {
-    font-size: 35%;
+@media screen and (max-width: 404px) {
+  .parent1 {
+    width: 36rem;
+    height: 57rem;
   }
 }

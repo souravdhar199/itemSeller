@@ -20,12 +20,13 @@ function Forgotpassward() {
   return (
     <>
       {" "}
-      <div className="login-box">
+      <div className="addList">
         <form onSubmit={submit}>
-          <div className="user-box">
-            <label>Enter your Email</label>
+          <div className="forgetPass">
+            <p>Enter your Email </p>
             <input type="email" onChange={(e) => setEmail(e.target.value)} />
-            <button>Send Reset Link</button>
+            <br></br>
+            <button className="buttonSignin">Send Reset Link</button>
           </div>
         </form>
       </div>

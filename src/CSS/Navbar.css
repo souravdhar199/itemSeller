@@ -1,50 +1,63 @@
 .navDiv {
   margin-top: 2rem;
 }
+
 nav ul li {
   list-style: none;
   font-size: 1.2rem;
   cursor: pointer;
 }
-
 nav ul {
   display: flex;
   gap: 20%;
 }
+.logo {
+  font-size: 3rem;
+  background-color: white;
+  font-weight: bold;
+  font-style: oblique;
+  cursor: pointer;
+  color: mediumseagreen;
+}
+.logoImage {
+  margin-left: 5rem;
+
+  text-align: center;
+  padding-top: 1.73rem;
+}
 html {
   font-size: 100%;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1291px) {
   html {
     font-size: 85%;
   }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1133px) {
   html {
-    font-size: 75%;
-  }
-  .parentItems {
-    grid-template-columns: auto;
+    font-size: 80%;
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1097px) {
   html {
-    font-size: 65%;
-  }
-}
-@media screen and (max-width: 650px) {
-  html {
-    font-size: 55%;
+    font-size: 70%;
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 983px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media screen and (max-width: 516px) {
   html {
     font-size: 45%;
   }
 }
-@media screen and (max-width: 540px) {
+
+@media screen and (max-width: 404px) {
   html {
-    font-size: 35%;
+    font-size: 30%;
   }
 }

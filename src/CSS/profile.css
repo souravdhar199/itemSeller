@@ -44,40 +44,34 @@ h1 {
   height: 3rem;
   box-shadow: 0 0 0 2px var(--secondary);
 }
+
+.forgetPass {
+  margin-top: 8rem;
+}
+.forgetPass p {
+  font-size: 1.2rem;
+}
 html {
   font-size: 100%;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1291px) {
   html {
     font-size: 85%;
   }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1133px) {
   html {
-    font-size: 75%;
-  }
-  .parentItems {
-    grid-template-columns: auto;
+    font-size: 80%;
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1097px) {
   html {
-    font-size: 65%;
-  }
-}
-@media screen and (max-width: 650px) {
-  html {
-    font-size: 55%;
+    font-size: 70%;
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 983px) {
   html {
-    font-size: 45%;
-  }
-}
-@media screen and (max-width: 540px) {
-  html {
-    font-size: 35%;
+    font-size: 50%;
   }
 }
