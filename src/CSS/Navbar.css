@@ -51,16 +51,11 @@ html {
 }
 
 @media screen and (max-width: 516px) {
+  .logoImage {
+    margin-left: 1rem;
+  }
   html {
     font-size: 45%;
-  }
-  nav {
-    display: grid;
-    grid-template-columns: auto;
-  }
-  nav ul {
-    justify-content: start;
-    gap: 36.7%;
   }
 }
 
