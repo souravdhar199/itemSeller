@@ -133,11 +133,6 @@ html {
   html {
     font-size: 45%;
   }
-
-  .parent1 {
-    width: 35rem;
-    height: 50rem;
-  }
 }
 @media screen and (max-width: 300px) {
   html {
