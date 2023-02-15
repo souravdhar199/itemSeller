@@ -124,6 +124,9 @@ html {
   html {
     font-size: 55%;
   }
+  .parentItems {
+    grid-row-gap: 1%;
+  }
   .parent1 {
     width: 35rem;
     height: 45rem;
