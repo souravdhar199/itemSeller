@@ -13,6 +13,7 @@ img {
   box-shadow: 0 0.7rem 0.7rem 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   text-align: center;
+  min-height: 26rem;
 }
 .parent1:hover {
   box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
@@ -98,6 +99,9 @@ html {
 
   .parentItems {
     grid-template-columns: 24rem 24rem;
+  }
+  .parent1 {
+    min-height: 30rem;
   }
 }
 
