@@ -45,7 +45,7 @@ function Explor() {
       try {
         const listingData = collection(db, "products");
         //get The query
-        const q = query(listingData);
+        const q = query(listingData, orderBy("timeStamp", "desc"));
 
         // Execute the query:
         const runq = await getDocs(q);

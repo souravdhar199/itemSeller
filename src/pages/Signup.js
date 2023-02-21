@@ -52,7 +52,7 @@ function Signup() {
       navigate("/sign-in");
     } catch {
       console.log("Error");
-      toast("Passward/email not strong/valid");
+      toast.error("This email already in use 😊");
     }
   };
   return (
@@ -87,6 +87,7 @@ function Signup() {
             />
             <p> Password </p>
             <input
+              type={"password"}
               value={pass}
               onChange={(e) =>
                 setDataform((prevState) => ({

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../CSS/signin&signup.css";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 
 function Signin() {
   // const [showPass, SetShowpass] = new useState(false);
@@ -22,7 +23,7 @@ function Signin() {
         navigate("/profile");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("Invalid Credentials");
       });
   };
   return (
@@ -44,6 +45,7 @@ function Signin() {
             />
             <p>Password</p>
             <input
+              type={"password"}
               value={pass}
               onChange={(e) =>
                 setDataform((prevState) => ({
