@@ -73,7 +73,7 @@ function Explor() {
               : Setcatagory(e.target.value)
           }
         >
-          <option>Slect an Option</option>
+          <option>All</option>
           <option>sports</option>
           <option>Electronics</option>
           <option>office</option>

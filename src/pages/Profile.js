@@ -181,7 +181,7 @@ export default function Profile() {
                 setNewList({ ...newList, Catagory: e.target.value })
               }
             >
-              <option>All</option>
+              <option>Select an Option</option>
               <option>sports</option>
               <option>Electronics</option>
               <option>office</option>
