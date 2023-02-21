@@ -3,12 +3,14 @@
 itemSeller is an application for buying/selling items online.
 
 ## Features
-- Users can securely access the project by entering their credentials. Also they can create a new account, reset forgotten passwords, and log in with existing         credentials. 
-- User can create profiles with information such as profile picture, name and email. Also user can update their name/profile picture anytime. 
-- Sellers will receive an email if any buyers want's to buy their products.
-- All the listing item will be divided into catagroies, such as electrocnis, office, sports etc.
-- Sellers are able to create new listing as well as they can delete and update any listing. 
-- Any listing that marked sale it will show at clearence page. 
+
+- Designed and developed an e-commerce website using React and Firebase, creating a user-friendly and responsive experience for buyers and sellers.
+
+- Built an authentication system using Firebase Authentication, enabling users to create accounts, login also forgot password feature for resetting passwords.
+
+- Utilized Firestone to manage product data and enable sellers to easily add, edit, and delete products
+
+- Used Reacts state management and lifecycle methods to ensure the platform’s optimal performance, scalability, and maintainability
 
 
 
