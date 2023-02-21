@@ -34,10 +34,3 @@ npm install
 npm start
 ```
 
-## Documentation
-
-The documentation for this project can be found in the `docs` folder.
-
-## Contributing
-
-We welcome contributions to this project. Please read the [Contributing Guidelines](https://github.com/souravdhar199/itemSeller/blob/master/CONTRIBUTING.md) before submitting a
