@@ -68,7 +68,7 @@ function Explor() {
       <form className="formUpdate">
         <select
           onChange={(e) =>
-            e.target.value === "Slect an Option"
+            e.target.value === "All"
               ? [setLoadall(!loadAll), Setcatagory(null)]
               : Setcatagory(e.target.value)
           }
