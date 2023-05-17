@@ -64,7 +64,7 @@ function Explor() {
 
   return (
     <div className="homePage">
-      <h1>Shop by Catagory</h1>
+      <h1>Shop by Category</h1>
       <form className="formUpdate">
         <select
           onChange={(e) =>
